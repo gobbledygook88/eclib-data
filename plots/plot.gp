@@ -45,12 +45,12 @@
 # --------------------------
 
 # PNG
-set terminal png size 1024,684 enhanced font './Vera.ttf,10'
-fileext = ".png"
+# set terminal png size 1024,684 enhanced font './Vera.ttf,10'
+# fileext = ".png"
 
 # EPS
-# set terminal postscript eps size 10.24,6.84 enhanced color font './Vera.ttf,20' 
-# fileext = ".eps"
+set terminal postscript eps size 10.24,6.84 enhanced color font './Vera.ttf,20'
+fileext = ".eps"
 
 fileout = "plot-".m."-".v."-"
 if( exists("n") ) fileout = fileout.n."-"
@@ -66,8 +66,7 @@ set ylabel 'Time (seconds)'
 # set xrange [min:max]
 set yrange [0:4500]
 # set logscale y
-set key right bmargin
-
+set key horizontal center bmargin
 
 # Setup file configurations
 # -----------------------------
@@ -89,7 +88,7 @@ filename = "tmanin_runtimes-".min."-".max.".dat"
 # plot filedir.filename using 1:2 with points notitle, "" using (exists("l") && $2>l ? $1 : 1/0):2:1 with labels right notitle
 
 # Odd, even
-plot filedir.filename using (int($1)%2 ? $1 : 1/0 ):2 with points title "N % 2 = 1", "" using (int($1)%2 ? 1/0 : $1):2 with points title "N % 2 = 0"
+plot filedir.filename using (int($1)%2 ? $1 : 1/0 ):2 with points title "N odd", "" using (int($1)%2 ? 1/0 : $1):2 with points title "N even" 
 
 
 
