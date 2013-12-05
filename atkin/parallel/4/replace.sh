@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Old file
-OLD_FILE="tmanin_runtimes-serial-old.dat"
+OLD_FILE="tmanin_runtimes-serial-50000-60000.dat"
 
 # New file
-NEW_FILE="tmanin_runtimes-serial-new.dat"
+NEW_FILE="tmanin_runtimes-serial-high.dat"
 
 # Get number of lines in new file
 NUM_LINES=$(wc -l < $NEW_FILE)
